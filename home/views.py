@@ -20,5 +20,5 @@ class HomeView(BaseView):
         self.view['add_second'] = Ad.objects.filter(rank=2)
         self.view['add_third'] = Ad.objects.filter(rank=3)
         self.view['add_forth'] = Ad.objects.filter(rank=4)
-        self.view['special_subcat'] = SubCategory.objects.filter(labels = 'special')
+        self.view['special_subcat'] = SubCategory.objects.filter(labels='special')
         return render(self.request, 'index.html', self.view)

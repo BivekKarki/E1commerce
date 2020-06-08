@@ -1,6 +1,4 @@
 
-
-
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -116,7 +114,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							<li class=" active"><a href="index.html" class="hyper "><span>Home</span></a></li>
 							{% for cat in category %}
 							<li class="dropdown ">
-								<a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Kitchen<b class="caret"></b></span></a>
+								<a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>{{cat.title}}<b class="caret"></b></span></a>
 								<ul class="dropdown-menu multi">
 									<div class="row">
 										<div class="col-sm-3">
