@@ -17,7 +17,7 @@
     </div>
 </div>
 
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="{% static 'js/vendor/jquery-1.11.1.min.js' %}"><\/script>')</script>
     <script src="{% static 'js/jquery.vide.min.js' %}"></script>
 
 <!--content-->
@@ -35,7 +35,7 @@
 				<nav class="nav-sidebar">
 					<ul class="nav tabs ">
 						{% for spe_subcat in special_subcat %}
-					  <li class="{{spe_subcat.status}}"><a href="#{{spe_subcat.slug}}" data-toggle="{{spe_subcat.title}}">Staples</a></li>
+					  <li class="{{spe_subcat.status}}"><a href="#{{spe_subcat.slug}}" data-toggle="tab">{{spe_subcat.title}}</a></li>
 						{% endfor %}
 					</ul>
 				</nav>
@@ -44,7 +44,7 @@
 					<div class="tab-pane {{spe_subcat.status}} text-style" id="{{spe_subcat.slug}}">
 						<div class=" con-w3l">
 						{% for item in items %}
-						{% if spe_subcat.id == item.SubCategory_id %}
+						{% if spe_subcat.id == item.subcategory_id %}
 							<div class="col-md-3 m-wthree">
 								<div class="col-m">								
 									<a href="#" data-toggle="modal" data-target="#myModal1" class="offer-img">
@@ -187,10 +187,10 @@
 									</a>
 									<div class="mid-1">
 										<div class="women">
-											<h6><a href="{{item.get_item_url}}">{{item.title}}</a>(500 g)</h6>
+											<h6><a href="{{item.get_item_url}}">{{item.title}}</a></h6>
 										</div>
 										<div class="mid-2">
-											{% if item.discounted_price > 0 %}
+											{% if item.discounted_price %}
 											<p ><label>Rs.{{item.price}}</label><em class="item_price">Rs.{{item.discounted_price}}</em></p>
 											{% else %}
 											<p ><em class="item_price">Rs.{{item.price}}</em></p>

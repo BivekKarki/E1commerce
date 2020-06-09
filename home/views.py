@@ -30,4 +30,4 @@ class ItemDetailView(DetailView):
 class Subcategory(BaseView):
     def get(self, request, id):
         self.view['subcat_items'] = Item.objects.filter(subcategory_id = id)
-        return render(self.request, 'kitchen.html', self.view),
+        return render(self.request, 'kitchen.html', self.view)

@@ -1,8 +1,8 @@
 from django.db import models
 from django.urls import reverse
 
-STATUS = (('active', 'Active'), ('inactive', 'Inactive'),('', 'Default'))
-STOCK = (('In Stock', 'In Stock'), ('Out Of Stock', 'Out Of STock'))
+STATUS = (('active', 'Active'), ('inactive', 'Inactive'), ('', 'Default'))
+STOCK = (('In Stock', 'In Stock'), ('Out Of Stock', 'Out Of Stock'))
 LABELS = (('special', 'special'), ('', 'Non Special'))
 # Create your models here.
 class Category(models.Model):
@@ -21,7 +21,8 @@ class SubCategory(models.Model):
     image = models.TextField()
     labels = models.CharField(max_length=300, choices=LABELS, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
-    status =  models.CharField(max_length=200, choices=STATUS, blank=True)
+    status = models.CharField(max_length=200, choices=STATUS, blank=True)
+
     def __str__(self):
         return self.title
     def get_subcat_url(self):
