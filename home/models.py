@@ -1,5 +1,8 @@
+from audioop import reverse
+
 from django.db import models
-from django.urls import reverse
+# from django.urls import reverse
+
 
 STATUS = (('active', 'Active'), ('inactive', 'Inactive'), ('', 'Default'))
 STOCK = (('In Stock', 'In Stock'), ('Out Of Stock', 'Out Of Stock'))
@@ -44,8 +47,8 @@ class Item(models.Model):
 
     def __str__(self):
         return self.title
-    def get_item_url(self):
-        return reverse("home:product", kwargs={'slug': self.slug})
+    # def get_item_url(self):
+    #     return reverse("home:product", kwargs={'slug': self.slug})
 
 class Slider(models.Model):
     title = models.CharField(max_length=300)
